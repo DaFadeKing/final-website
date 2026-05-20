@@ -7,3 +7,731 @@
   <meta name="description" content="Professional pressure washing in Seattle, Bellevue, Kirkland & surrounding areas. Driveways, siding, decks, roofs & more. Free quotes. Local Seattle business." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1f44;
+      --blue: #1a56db;
+      --blue-light: #e8f0fe;
+      --orange: #f97316;
+      --orange-dark: #ea6c0a;
+      --gray: #64748b;
+      --gray-light: #f8fafc;
+      --white: #ffffff;
+      --text: #1e293b;
+      --border: #e2e8f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    /* âââ NAV âââ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-logo span {
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.3px;
+    }
+    .nav-logo span em { color: var(--orange); font-style: normal; }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-dark); }
+
+    /* âââ HERO âââ */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2d6b 60%, #1a3a8f 100%);
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 640px; position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(249,115,22,0.18);
+      color: #fdba74;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(249,115,22,0.3);
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-bottom: 36px;
+      max-width: 500px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 56px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.82rem; color: #94a3b8; margin-top: 4px; }
+
+    /* âââ SECTION BASE âââ */
+    section { padding: 90px 5%; }
+    .section-tag {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .section-sub {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin-bottom: 52px;
+    }
+
+    /* âââ SERVICES âââ */
+    #services { background: var(--gray-light); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(10,31,68,0.1);
+      transform: translateY(-3px);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--blue-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+    }
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .service-card p { color: var(--gray); font-size: 0.93rem; }
+    .service-price {
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--orange);
+      font-size: 0.95rem;
+    }
+
+    /* âââ WHY US âââ */
+    #why {
+      background: var(--white);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+    .why-item { text-align: center; padding: 8px; }
+    .why-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .why-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .why-item p { color: var(--gray); font-size: 0.93rem; }
+
+    /* âââ AREAS âââ */
+    #areas { background: var(--navy); }
+    #areas .section-title { color: var(--white); }
+    #areas .section-sub { color: #94a3b8; }
+    #areas .section-tag { background: rgba(249,115,22,0.2); color: #fdba74; }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .area-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 12px 16px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /* âââ REVIEWS âââ */
+    #reviews { background: var(--gray-light); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+    .stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 14px; }
+    .review-text { color: var(--text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .reviewer { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+    .reviewer span { color: var(--gray); font-weight: 400; }
+
+    /* âââ CONTACT âââ */
+    #contact { background: var(--white); }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .contact-info h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .contact-info p { color: var(--gray); margin-bottom: 28px; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .contact-detail-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-text a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .contact-detail-text a:hover { color: var(--blue); }
+    .contact-detail-text small { display: block; color: var(--gray); font-size: 0.82rem; }
+
+    form {
+      background: var(--gray-light);
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid var(--border);
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); }
+    textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      background: var(--orange);
+      color: var(--white);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .form-submit:hover { background: var(--orange-dark); }
+    .form-note { font-size: 0.78rem; color: var(--gray); text-align: center; margin-top: 10px; }
+
+    /* âââ FOOTER âââ */
+    footer {
+      background: var(--navy);
+      padding: 40px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo { color: var(--white); font-weight: 800; font-size: 1rem; }
+    .footer-logo em { color: var(--orange); font-style: normal; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: #94a3b8; font-size: 0.88rem; text-decoration: none; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #475569; font-size: 0.82rem; width: 100%; }
+
+    /* âââ CTA BANNER âââ */
+    .cta-banner {
+      background: linear-gradient(90deg, var(--orange) 0%, #fb923c 100%);
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .cta-banner p { color: rgba(255,255,255,0.85); margin-bottom: 28px; font-size: 1rem; }
+    .cta-banner .btn-white {
+      background: var(--white);
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 15px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.1s;
+    }
+    .cta-banner .btn-white:hover { transform: translateY(-2px); }
+
+    /* âââ RESPONSIVE âââ */
+    @media (max-width: 640px) {
+      nav { padding: 0 4%; }
+      section { padding: 70px 4%; }
+      .hero { padding: 100px 4% 70px; }
+      .hero-stats { gap: 24px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="16" fill="#f97316"/>
+        <path d="M10 22 L16 8 L22 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.5 17 H19.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 22 L16 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 26 L19 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Rainier <em>Pressure Washing</em></span>
+    </div>
+    <a href="#contact" class="nav-cta">Get a Free Quote â</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">â­ Serving Seattle & the Eastside</div>
+      <h1>Seattle's <em>Cleanest</em><br/>Homes Start Here</h1>
+      <p>Professional pressure washing that restores your home's curb appeal â driveways, siding, decks, roofs & more. Local Seattle business. Free quotes in 24 hours.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">ð Get a Free Quote</a>
+        <a href="tel:+12064759785" class="btn-secondary">ð (206) 475-9785</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">Local</div>
+          <div class="stat-label">Seattle-Based Business</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">No-Obligation Quotes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Same Day</div>
+          <div class="stat-label">Quotes Available</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Satisfaction Guaranteed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Services Built for<br/>Seattle Homes</h2>
+    <p class="section-sub">Pacific Northwest weather leaves a mark. We remove moss, grime, algae, and buildup â safely and effectively.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">ð </div>
+        <h3>House Siding Wash</h3>
+        <p>Safe soft washing removes algae, mildew, and black streaks from vinyl, wood, and composite siding without damage.</p>
+        <span class="service-price">Starting at $180</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">ð</div>
+        <h3>Driveway & Concrete</h3>
+        <p>High-pressure surface cleaning blasts away oil stains, moss, and years of grime. Makes driveways look new again.</p>
+        <span class="service-price">Starting at $120</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">ð¿</div>
+        <h3>Deck & Patio Cleaning</h3>
+        <p>Safe pressure washing removes years of grime, mold, and algae from wood and composite decks â prepping for staining or just refreshing.</p>
+        <span class="service-price">Starting at $150</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">ðï¸</div>
+        <h3>Roof Soft Wash</h3>
+        <p>Low-pressure soft washing safely eliminates black algae streaks and moss from shingles, extending roof life.</p>
+        <span class="service-price">Starting at $250</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">ð</div>
+        <h3>Gutter Cleaning</h3>
+        <p>Clear debris, leaves, and buildup from gutters to prevent water damage â often paired with a full exterior wash.</p>
+        <span class="service-price">Starting at $100</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">ð¡</div>
+        <h3>Full Home Package</h3>
+        <p>House wash + driveway + deck + gutters. Best value for a complete exterior refresh before selling or summer.</p>
+        <span class="service-price">Starting at $499</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="section-tag">Why Rainier</div>
+    <h2 class="section-title">Why Homeowners Choose Us</h2>
+    <p class="section-sub">We're a local Seattle business â not a franchise. Every job gets our personal attention and a satisfaction guarantee.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-icon">ð </span>
+        <h3>Locally Owned</h3>
+        <p>We're a Seattle-based small business â not a franchise. You work directly with the owner on every job.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">ð§</span>
+        <h3>Eco-Friendly Products</h3>
+        <p>Biodegradable, plant-safe cleaning solutions that are safe for your family, pets, and Puget Sound.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">ð</span>
+        <h3>Flexible Scheduling</h3>
+        <p>Weekday and weekend availability. We work around your schedule â not the other way around.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">â</span>
+        <h3>Satisfaction Guaranteed</h3>
+        <p>If you're not happy, we'll come back and make it right. No questions asked.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">ð°</span>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden fees. We give you an exact quote before we start â you'll never be surprised by the bill.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">â¡</span>
+        <h3>Fast & Reliable</h3>
+        <p>Most jobs completed in half a day. We show up on time, every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Ready for a Cleaner Home?</h2>
+    <p>Get your free, no-obligation quote within 24 hours. Most jobs booked within the week.</p>
+    <a href="#contact" class="btn-white">Get My Free Quote â</a>
+  </div>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="section-tag">Reviews</div>
+    <h2 class="section-title">What Seattle Homeowners Say</h2>
+    <p class="section-sub">Real reviews from real neighbors. We let our work speak for itself.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">â­â­â­â­â­</div>
+        <p class="review-text">"Our driveway hadn't been cleaned in years â it looked brand new when they were done. Punctual, professional, and very reasonably priced. We'll definitely be using them again."</p>
+        <div class="reviewer">Sarah M. <span>â Kirkland, WA</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">â­â­â­â­â­</div>
+        <p class="review-text">"The moss on our roof and the algae on our siding were gone in a few hours. They used low-pressure on the roof which I really appreciated â some companies blast it too hard. Great job!"</p>
+        <div class="reviewer">Tom R. <span>â Bellevue, WA</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">â­â­â­â­â­</div>
+        <p class="review-text">"We were getting ready to sell our house and wanted it to look its best. They did the full package and it made a huge difference. Our realtor said the curb appeal was dramatically better."</p>
+        <div class="reviewer">Amanda & Jake L. <span>â Shoreline, WA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section id="areas">
+    <div class="section-tag">Coverage</div>
+    <h2 class="section-title">We Serve Greater Seattle</h2>
+    <p class="section-sub">Based in Seattle â serving the entire metro area including the Eastside, Northgate, and South King County.</p>
+    <div class="areas-grid">
+      <div class="area-chip">Seattle</div>
+      <div class="area-chip">Bellevue</div>
+      <div class="area-chip">Kirkland</div>
+      <div class="area-chip">Redmond</div>
+      <div class="area-chip">Shoreline</div>
+      <div class="area-chip">Edmonds</div>
+      <div class="area-chip">Renton</div>
+      <div class="area-chip">Bothell</div>
+      <div class="area-chip">Kenmore</div>
+      <div class="area-chip">Issaquah</div>
+      <div class="area-chip">Sammamish</div>
+      <div class="area-chip">Burien</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-tag">Get a Quote</div>
+    <h2 class="section-title">Free Quote â No Obligation</h2>
+    <p class="section-sub">Fill out the form and we'll get back to you within a few hours with a firm price. No pressure, no upsells.</p>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p>We're a local Seattle business â you'll always talk to a real person, not a call center.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">ð</div>
+          <div class="contact-detail-text">
+            <a href="tel:+12064759785">(206) 475-9785</a>
+            <small>MonâSat, 7amâ7pm</small>
+
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">âï¸</div>
+          <div class="contact-detail-text">
+            <a href="mailto:rainierpressurewashing206@gmail.com">rainierpressurewashing206@gmail.com</a>
+            <small>We reply within a few hours</small>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">ð</div>
+          <div class="contact-detail-text">
+            <a href="#">Based in Seattle, WA</a>
+            <small>Serving the greater Seattle metro</small>
+          </div>
+        </div>
+      </div>
+
+      <div data-fs-success style="display:none; background:#dcfce7; border:1px solid #86efac; color:#166534; padding:18px 20px; border-radius:12px; font-weight:600; margin-bottom:16px;">
+        â Thanks! We received your request and will be in touch within a few hours.
+      </div>
+      <div data-fs-error style="display:none; background:#fee2e2; border:1px solid #fca5a5; color:#991b1b; padding:14px 18px; border-radius:10px; font-size:0.9rem; margin-bottom:16px;"></div>
+
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Kyle Smith" required data-fs-field />
+            <span data-fs-error="name" style="color:#dc2626; font-size:0.8rem;"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(206) 555-0000" required data-fs-field />
+            <span data-fs-error="phone" style="color:#dc2626; font-size:0.8rem;"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required data-fs-field />
+          <span data-fs-error="email" style="color:#dc2626; font-size:0.8rem;"></span>
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service" data-fs-field>
+            <option value="">Select a service...</option>
+            <option>House Siding Wash</option>
+            <option>Driveway & Concrete</option>
+            <option>Deck & Patio Cleaning</option>
+            <option>Roof Soft Wash</option>
+            <option>Gutter Cleaning</option>
+            <option>Full Home Package</option>
+            <option>Not sure â need a recommendation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="address">Property Address (optional)</label>
+          <input type="text" id="address" name="address" placeholder="123 Lake Washington Blvd, Seattle" />
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" name="message" placeholder="e.g. heavy moss on roof, two-story house, dog in backyard..." data-fs-field></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-fs-submit-btn>Send My Free Quote Request â</button>
+        <p class="form-note">ð No spam. We only contact you about your quote.</p>
+      </form>
+
+      <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'mredelgd' });
+      </script>
+      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Rainier <em>Pressure Washing</em> Â· Seattle, WA</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#why">About</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">Â© 2026 Rainier Pressure Washing. All rights reserved. Seattle, WA. Â· <a href="mailto:rainierpressurewashing206@gmail.com" style="color:#94a3b8; text-decoration:none;">rainierpressurewashing206@gmail.com</a></div>
+  </footer>
+
+  <script>
+    // Smooth active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    // Animate hero stats on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.service-card, .why-item, .review-card').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
