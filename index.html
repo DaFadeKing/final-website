@@ -77,9 +77,76 @@
       background: linear-gradient(135deg, var(--navy) 0%, #0d2d6b 60%, #1a3a8f 100%);
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 40px;
       padding: 120px 5% 80px;
       position: relative;
       overflow: hidden;
+    }
+    .hero-about-card {
+      flex-shrink: 0;
+      width: 300px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 32px 28px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-about-icon {
+      margin-bottom: 14px;
+    }
+    .hero-about-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #f97316;
+      margin-bottom: 8px;
+    }
+    .hero-about-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .hero-about-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .hero-about-desc strong { color: #fdba74; font-weight: 700; }
+    .hero-about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px 0;
+    }
+    .hero-about-list li {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      padding: 4px 0;
+    }
+    .hero-about-cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 11px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .hero-about-cta:hover { background: var(--orange-dark); }
+    @media (max-width: 900px) {
+      .hero-about-card { display: none; }
     }
     .hero::before {
       content: '';
@@ -461,7 +528,7 @@
     <div class="hero-content">
       <div class="hero-badge">&#9733; Serving Seattle & the Eastside</div>
       <h1>Seattle's <em>Cleanest</em><br/>Homes Start Here</h1>
-      <p>Professional pressure washing that restores your home's curb appeal &mdash; driveways, siding, decks, roofs & more. Local Seattle business. Free quotes in 24 hours.</p>
+      <p>Professional pressure washing that restores your home's curb appeal &mdash; driveways, siding & more. Local Seattle business. Free quotes in 24 hours.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn-primary">&#128203; Get a Free Quote</a>
         <a href="tel:+12064759785" class="btn-secondary">&#128222; (206) 475-9785</a>
@@ -485,49 +552,47 @@
         </div>
       </div>
     </div>
+
+    <!-- About card on the right -->
+    <div class="hero-about-card">
+      <div class="hero-about-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+          <circle cx="32" cy="32" r="32" fill="rgba(249,115,22,0.2)"/>
+          <path d="M16 42 L32 20 L48 42" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 42 L42 42" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="27" y="33" width="10" height="9" rx="2" fill="#f97316" opacity="0.8"/>
+          <circle cx="32" cy="16" r="4" fill="#f97316"/>
+        </svg>
+      </div>
+      <div class="hero-about-label">Who We Are</div>
+      <h3 class="hero-about-title">U of U Students<br/>Serving Seattle</h3>
+      <p class="hero-about-desc">We're two college students from the <strong>University of Utah</strong> building a real business from the ground up. Every job funds our education &mdash; and we treat your home like we're trying to earn an A.</p>
+      <ul class="hero-about-list">
+        <li>&#10003; Owner-operated, every job</li>
+        <li>&#10003; Fully insured</li>
+        <li>&#10003; Student work ethic &mdash; we hustle</li>
+      </ul>
+      <a href="#contact" class="hero-about-cta">Support Local Students &rarr;</a>
+    </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services">
     <div class="section-tag">What We Do</div>
-    <h2 class="section-title">Services Built for<br/>Seattle Homes</h2>
-    <p class="section-sub">Pacific Northwest weather leaves a mark. We remove moss, grime, algae, and buildup &mdash; safely and effectively.</p>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-sub">Pacific Northwest weather leaves a mark. We specialize in soft washing house siding and pressure cleaning driveways &mdash; safely and effectively.</p>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">&#127968;</div>
-        <h3>House Siding Wash</h3>
+        <h3>House Soft Wash</h3>
         <p>Safe soft washing removes algae, mildew, and black streaks from vinyl, wood, and composite siding without damage.</p>
         <span class="service-price">Starting at $180</span>
       </div>
       <div class="service-card">
         <div class="service-icon">&#128663;</div>
-        <h3>Driveway & Concrete</h3>
-        <p>High-pressure surface cleaning blasts away oil stains, moss, and years of grime. Makes driveways look new again.</p>
+        <h3>Driveway & Walkways</h3>
+        <p>High-pressure surface cleaning blasts away oil stains, moss, and years of grime from driveways, sidewalks, and paths. Makes concrete look new again.</p>
         <span class="service-price">Starting at $120</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">&#127807;</div>
-        <h3>Deck & Patio Cleaning</h3>
-        <p>Safe pressure washing removes years of grime, mold, and algae from wood and composite decks &mdash; prepping for staining or just refreshing.</p>
-        <span class="service-price">Starting at $150</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">&#127956;</div>
-        <h3>Roof Soft Wash</h3>
-        <p>Low-pressure soft washing safely eliminates black algae streaks and moss from shingles, extending roof life.</p>
-        <span class="service-price">Starting at $250</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">&#127810;</div>
-        <h3>Gutter Cleaning</h3>
-        <p>Clear debris, leaves, and buildup from gutters to prevent water damage &mdash; often paired with a full exterior wash.</p>
-        <span class="service-price">Starting at $100</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">&#127969;</div>
-        <h3>Full Home Package</h3>
-        <p>House wash + driveway + deck + gutters. Best value for a complete exterior refresh before selling or summer.</p>
-        <span class="service-price">Starting at $499</span>
       </div>
     </div>
   </section>
@@ -536,7 +601,7 @@
   <section id="why">
     <div class="section-tag">Why Rainier</div>
     <h2 class="section-title">Why Homeowners Choose Us</h2>
-    <p class="section-sub">We're a local Seattle business &mdash; not a franchise. Every job gets our personal attention and a satisfaction guarantee.</p>
+    <p class="section-sub">We're a local Seattle business &mdash; not a framchise. Every job gets our personal attention and a satisfaction guarantee.</p>
     <div class="why-grid">
       <div class="why-item">
         <span class="why-icon">&#127968;</span>
@@ -683,12 +748,8 @@
           <label for="service">Service Interested In</label>
           <select id="service" name="service" data-fs-field>
             <option value="">Select a service...</option>
-            <option>House Siding Wash</option>
-            <option>Driveway & Concrete</option>
-            <option>Deck & Patio Cleaning</option>
-            <option>Roof Soft Wash</option>
-            <option>Gutter Cleaning</option>
-            <option>Full Home Package</option>
+            <option>House Soft Wash</option>
+            <option>Driveway &amp; Walkways</option>
             <option>Not sure &mdash; need a recommendation</option>
           </select>
         </div>
