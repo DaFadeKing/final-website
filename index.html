@@ -85,11 +85,11 @@
     }
     .hero-about-card {
       flex-shrink: 0;
-      width: 300px;
+      width: 460px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 20px;
-      padding: 32px 28px;
+      padding: 36px 32px;
       backdrop-filter: blur(10px);
       position: relative;
       z-index: 2;
@@ -98,45 +98,134 @@
       margin-bottom: 14px;
     }
     .hero-about-label {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #f97316;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .hero-about-title {
-      font-size: 1.45rem;
+      font-size: 1.75rem;
       font-weight: 800;
       color: var(--white);
       line-height: 1.2;
-      margin-bottom: 14px;
-      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
     }
-    .hero-about-desc {
-      font-size: 0.88rem;
+    .hero-about-subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
       color: #94a3b8;
-      line-height: 1.65;
+      font-style: italic;
       margin-bottom: 18px;
+      line-height: 1.4;
     }
-    .hero-about-desc strong { color: #fdba74; font-weight: 700; }
+    /* U of U summer banner */
+    .uou-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(204,0,0,0.18);
+      border: 1px solid rgba(204,0,0,0.4);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+    }
+    .uou-logo {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .uou-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .uou-banner-text {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fca5a5;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    /* School logos row */
+    .school-logos-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .school-logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .school-seal {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255,255,255,0.25);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .school-seal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+    .school-seal.bush {
+      background: #0d2060;
+    }
+    .school-logo-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .school-logo-year {
+      font-size: 0.68rem;
+      color: #f97316;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* Three backgrounds tagline */
+    .three-backgrounds {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .three-backgrounds em { color: #f97316; font-style: normal; }
     .hero-about-list {
       list-style: none;
       padding: 0;
       margin: 0 0 22px 0;
     }
     .hero-about-list li {
-      font-size: 0.84rem;
+      font-size: 0.88rem;
       color: #cbd5e1;
-      padding: 4px 0;
+      padding: 5px 0;
     }
     .hero-about-cta {
       display: inline-block;
       background: var(--orange);
       color: var(--white);
       font-weight: 700;
-      font-size: 0.85rem;
-      padding: 11px 20px;
+      font-size: 0.95rem;
+      padding: 13px 20px;
       border-radius: 8px;
       text-decoration: none;
       transition: background 0.2s;
@@ -145,6 +234,9 @@
       box-sizing: border-box;
     }
     .hero-about-cta:hover { background: var(--orange-dark); }
+    @media (max-width: 1050px) {
+      .hero-about-card { width: 380px; }
+    }
     @media (max-width: 900px) {
       .hero-about-card { display: none; }
     }
@@ -555,22 +647,48 @@
 
     <!-- About card on the right -->
     <div class="hero-about-card">
-      <div class="hero-about-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-          <circle cx="32" cy="32" r="32" fill="rgba(249,115,22,0.2)"/>
-          <path d="M16 42 L32 20 L48 42" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M22 42 L42 42" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="27" y="33" width="10" height="9" rx="2" fill="#f97316" opacity="0.8"/>
-          <circle cx="32" cy="16" r="4" fill="#f97316"/>
-        </svg>
+      <div class="hero-about-label">&#128101; Who We Are</div>
+      <h3 class="hero-about-title">A Team of 3.</h3>
+      <p class="hero-about-subtitle">Different Schools. Same Work Ethic.</p>
+
+      <!-- U of U banner -->
+      <div class="uou-banner">
+        <div class="uou-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Utah_Utes_primary_logo.svg" alt="University of Utah" /></div>
+        <div class="uou-banner-text">University of Utah Students &mdash;<br/>Back Home for the Summer!</div>
       </div>
-      <div class="hero-about-label">Who We Are</div>
-      <h3 class="hero-about-title">U of U Students<br/>Serving Seattle</h3>
-      <p class="hero-about-desc">We're two college students from the <strong>University of Utah</strong> building a real business from the ground up. Every job funds our education &mdash; and we treat your home like we're trying to earn an A.</p>
+
+      <!-- School logos -->
+      <div class="school-logos-row">
+        <div class="school-logo-item">
+          <div class="school-seal">
+            <img src="https://www.odea.org/wp-content/themes/odea-high-school/img/logo-color.png" alt="O'Dea High School" />
+          </div>
+          <div class="school-logo-name">O'Dea<br/>High School</div>
+          <div class="school-logo-year">Class of 2023</div>
+        </div>
+        <div class="school-logo-item">
+          <div class="school-seal">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Blanchetlogo.png/250px-Blanchetlogo.png" alt="Bishop Blanchet High School" />
+          </div>
+          <div class="school-logo-name">Blanchet<br/>High School</div>
+          <div class="school-logo-year">Class of 2026</div>
+        </div>
+        <div class="school-logo-item">
+          <div class="school-seal bush">
+            <img src="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/409/logo/BUSH_Logo_White.png" alt="Bush High School" />
+          </div>
+          <div class="school-logo-name">Bush<br/>High School</div>
+          <div class="school-logo-year">Class of 2024</div>
+        </div>
+      </div>
+
+      <!-- Three backgrounds tagline -->
+      <div class="three-backgrounds">&#129309; Three Backgrounds. <em>One Standard:</em> Quality Service.</div>
+
       <ul class="hero-about-list">
         <li>&#10003; Owner-operated, every job</li>
-        <li>&#10003; Fully insured</li>
-        <li>&#10003; Student work ethic &mdash; we hustle</li>
+        <li>&#10003; Free quotes &amp; fast response times</li>
+        <li>&#10003; Honest, reliable service you can count on</li>
       </ul>
       <a href="#contact" class="hero-about-cta">Support Local Students &rarr;</a>
     </div>
@@ -601,7 +719,7 @@
   <section id="why">
     <div class="section-tag">Why Rainier</div>
     <h2 class="section-title">Why Homeowners Choose Us</h2>
-    <p class="section-sub">We're a local Seattle business &mdash; not a framchise. Every job gets our personal attention and a satisfaction guarantee.</p>
+    <p class="section-sub">We're a local Seattle business &mdash; not a franchise. Every job gets our personal attention and a satisfaction guarantee.</p>
     <div class="why-grid">
       <div class="why-item">
         <span class="why-icon">&#127968;</span>
@@ -702,7 +820,6 @@
           <div class="contact-detail-text">
             <a href="tel:+12064759785">(206) 475-9785</a>
             <small>Mon&ndash;Sat, 7am&ndash;7pm</small>
-
           </div>
         </div>
         <div class="contact-detail">
@@ -786,9 +903,7 @@
   </footer>
 
   <script>
-    // Smooth active nav on scroll
     const sections = document.querySelectorAll('section[id]');
-    // Animate hero stats on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
