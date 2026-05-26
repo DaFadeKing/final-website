@@ -6,8 +6,8 @@
   <title>Rainier Pressure Washing | Seattle's #1 Exterior Cleaning</title>
   <meta name="description" content="Professional pressure washing in Seattle, Bellevue, Kirkland & surrounding areas. Driveways, siding, decks, roofs & more. Free quotes. Local Seattle business." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inhter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>h
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -351,70 +351,172 @@
     }
 
     /* --- SERVICES --- */
-    #services { background: var(--gray-light); }
+    #services {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .pine-tree-bg {
+      position: absolute;
+      top: -30px;
+      right: -50px;
+      width: 300px;
+      opacity: 0.055;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #services .section-tag,
+    #services .section-title,
+    #services .section-sub,
+    #services .services-grid {
+      position: relative;
+      z-index: 1;
+    }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
     .service-card {
       background: var(--white);
-      border-radius: 16px;
-      padding: 32px 28px;
-      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 38px 28px 28px;
+      border: 1.5px solid #e2e8f4;
+      box-shadow: 0 4px 24px rgba(10,31,68,0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .service-card:hover {
-      box-shadow: 0 8px 32px rgba(10,31,68,0.1);
-      transform: translateY(-3px);
+      box-shadow: 0 12px 44px rgba(10,31,68,0.13);
+      transform: translateY(-5px);
     }
     .service-icon {
-      width: 52px; height: 52px;
-      background: var(--blue-light);
-      border-radius: 12px;
+      width: 96px; height: 96px;
+      background: #dbeeff;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
-      font-size: 1.5rem;
+      margin-bottom: 22px;
+      flex-shrink: 0;
     }
+    .service-icon svg { width: 46px; height: 46px; }
     .service-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.18rem;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      text-align: center;
     }
-    .service-card p { color: var(--gray); font-size: 0.93rem; }
-    .service-price {
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.93rem;
+      line-height: 1.65;
+      text-align: center;
+      flex: 1;
+      margin-bottom: 22px;
+    }
+    .service-price-badge {
       display: inline-block;
-      margin-top: 14px;
+      background: var(--orange);
+      color: #fff;
       font-weight: 700;
-      color: var(--orange);
-      font-size: 0.95rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 50px;
+      margin-bottom: 22px;
     }
+    .service-card-divider {
+      border: none;
+      border-top: 1.5px solid #e2e8f4;
+      width: calc(100% + 56px);
+      margin: 0 -28px 18px;
+    }
+    .service-quote-link {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .service-quote-link:hover { color: var(--orange); }
 
     /* --- WHY US --- */
-    #why {
-      background: var(--white);
-    }
+    #why { background: var(--navy); }
+    #why .section-tag { background: rgba(249,115,22,0.2); color: #fdba74; }
+    #why .section-title { color: var(--white); }
+    #why .section-sub { color: #94a3b8; }
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 44px;
     }
-    .why-item { text-align: center; padding: 8px; }
-    .why-icon {
-      font-size: 2.2rem;
-      margin-bottom: 14px;
-      display: block;
+    .why-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 24px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
     }
-    .why-item h3 {
-      font-size: 1.05rem;
+    .why-icon-circle {
+      width: 50px; height: 50px;
+      background: rgba(249,115,22,0.15);
+      border: 1.5px solid rgba(249,115,22,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+    .why-item-text h3 {
+      font-size: 0.98rem;
       font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
+      color: var(--white);
+      margin-bottom: 5px;
     }
-    .why-item p { color: var(--gray); font-size: 0.93rem; }
+    .why-item-text p { color: #94a3b8; font-size: 0.87rem; line-height: 1.5; }
+    .why-stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .why-stat {
+      background: rgba(255,255,255,0.05);
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .why-stat:last-child { border-right: none; }
+    .why-stat-icon {
+      width: 50px; height: 50px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+    .why-stat-text strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .why-stat-text span { color: #94a3b8; font-size: 0.84rem; }
 
     /* --- AREAS --- */
     #areas { background: var(--navy); }
@@ -696,21 +798,64 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <div class="section-tag">Our Services</div>
-    <h2 class="section-title">What We Do</h2>
-    <p class="section-sub">Pacific Northwest weather leaves a mark. We specialize in soft washing house siding and pressure cleaning driveways &mdash; safely and effectively.</p>
+    <!-- Pine tree silhouette background -->
+    <svg class="pine-tree-bg" viewBox="0 0 200 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="100,5 175,110 138,110 188,195 150,195 195,295 5,295 50,195 12,195 62,110 25,110" fill="#0a1f44"/>
+      <rect x="84" y="295" width="32" height="40" fill="#0a1f44"/>
+    </svg>
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Pacific Northwest weather leaves a mark. We restore your home's curb appeal &mdash; safely, effectively, and at honest prices.</p>
     <div class="services-grid">
+      <!-- House Soft Wash -->
       <div class="service-card">
-        <div class="service-icon">&#127968;</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 44 44" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19L22 6L40 19"/>
+            <rect x="10" y="19" width="24" height="19" rx="1.5"/>
+            <rect x="17" y="27" width="10" height="11"/>
+          </svg>
+        </div>
         <h3>House Soft Wash</h3>
-        <p>Safe soft washing removes algae, mildew, and black streaks from vinyl, wood, and composite siding without damage.</p>
-        <span class="service-price">Starting at $180</span>
+        <p>Safe soft washing removes algae, mildew, and black streaks from vinyl, wood, and composite siding without damage to your home.</p>
+        <span class="service-price-badge">Starting at $180</span>
+        <hr class="service-card-divider"/>
+        <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
       </div>
+      <!-- Driveway & Walkways -->
       <div class="service-card">
-        <div class="service-icon">&#128663;</div>
-        <h3>Driveway & Walkways</h3>
+        <div class="service-icon">
+          <svg viewBox="0 0 44 44" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="17" width="36" height="16" rx="3"/>
+            <circle cx="13" cy="33" r="4"/>
+            <circle cx="31" cy="33" r="4"/>
+            <path d="M4 25h36"/>
+            <path d="M15 17v-6h14v6"/>
+          </svg>
+        </div>
+        <h3>Driveway &amp; Walkways</h3>
         <p>High-pressure surface cleaning blasts away oil stains, moss, and years of grime from driveways, sidewalks, and paths. Makes concrete look new again.</p>
-        <span class="service-price">Starting at $120</span>
+        <span class="service-price-badge">Starting at $120</span>
+        <hr class="service-card-divider"/>
+        <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
+      </div>
+      <!-- Garbage Bin Cleaning -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 44 44" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="14" width="24" height="25" rx="2"/>
+            <path d="M7 14h30"/>
+            <path d="M17 14v-4h10v4"/>
+            <line x1="17" y1="21" x2="17" y2="33"/>
+            <line x1="22" y1="21" x2="22" y2="33"/>
+            <line x1="27" y1="21" x2="27" y2="33"/>
+          </svg>
+        </div>
+        <h3>Garbage Bin Cleaning</h3>
+        <p>Deep clean and deodorize your trash bins inside and out. Eliminate bacteria, grime, and odors that attract pests and smell up your yard.</p>
+        <span class="service-price-badge">Starting at $25</span>
+        <hr class="service-card-divider"/>
+        <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
       </div>
     </div>
   </section>
@@ -722,34 +867,70 @@
     <p class="section-sub">We're a local Seattle business &mdash; not a franchise. Every job gets our personal attention and a satisfaction guarantee.</p>
     <div class="why-grid">
       <div class="why-item">
-        <span class="why-icon">&#127968;</span>
-        <h3>Locally Owned</h3>
-        <p>We're a Seattle-based small business &mdash; not a franchise. You work directly with the owner on every job.</p>
+        <div class="why-icon-circle">&#127968;</div>
+        <div class="why-item-text">
+          <h3>Locally Owned</h3>
+          <p>Seattle-based small business. You work directly with the owners on every single job.</p>
+        </div>
       </div>
       <div class="why-item">
-        <span class="why-icon">&#128167;</span>
-        <h3>Eco-Friendly Products</h3>
-        <p>Biodegradable, plant-safe cleaning solutions that are safe for your family, pets, and Puget Sound.</p>
+        <div class="why-icon-circle">&#127807;</div>
+        <div class="why-item-text">
+          <h3>Safe for Your Home &amp; Landscaping</h3>
+          <p>Biodegradable, plant-safe solutions that protect your family, pets, and Puget Sound.</p>
+        </div>
       </div>
       <div class="why-item">
-        <span class="why-icon">&#128197;</span>
-        <h3>Flexible Scheduling</h3>
-        <p>Weekday and weekend availability. We work around your schedule &mdash; not the other way around.</p>
+        <div class="why-icon-circle">&#8987;</div>
+        <div class="why-item-text">
+          <h3>On Time. Every Time.</h3>
+          <p>We show up when we say we will. Flexible weekday and weekend scheduling around your calendar.</p>
+        </div>
       </div>
       <div class="why-item">
-        <span class="why-icon">&#10003;</span>
-        <h3>Satisfaction Guaranteed</h3>
-        <p>If you're not happy, we'll come back and make it right. No questions asked.</p>
+        <div class="why-icon-circle">&#128295;</div>
+        <div class="why-item-text">
+          <h3>Professional Equipment</h3>
+          <p>Commercial-grade machines and professional-grade cleaning solutions for superior results.</p>
+        </div>
       </div>
       <div class="why-item">
-        <span class="why-icon">&#128176;</span>
-        <h3>Transparent Pricing</h3>
-        <p>No hidden fees. We give you an exact quote before we start &mdash; you'll never be surprised by the bill.</p>
+        <div class="why-icon-circle">&#129309;</div>
+        <div class="why-item-text">
+          <h3>Honest Reliable Service</h3>
+          <p>No hidden fees. Exact quote before we start &mdash; you'll never be surprised by the bill.</p>
+        </div>
       </div>
       <div class="why-item">
-        <span class="why-icon">&#9889;</span>
-        <h3>Fast & Reliable</h3>
-        <p>Most jobs completed in half a day. We show up on time, every time.</p>
+        <div class="why-icon-circle">&#11088;</div>
+        <div class="why-item-text">
+          <h3>Local. Student-Run. Focused on You.</h3>
+          <p>Three motivated students who treat every home like it's their own.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Stats bar -->
+    <div class="why-stats-bar">
+      <div class="why-stat">
+        <div class="why-stat-icon">&#128203;</div>
+        <div class="why-stat-text">
+          <strong>Free Quotes</strong>
+          <span>No-obligation estimates within 24 hours</span>
+        </div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-icon">&#9889;</div>
+        <div class="why-stat-text">
+          <strong>Fast Response Times</strong>
+          <span>We reply quickly and book jobs fast</span>
+        </div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-icon">&#10003;</div>
+        <div class="why-stat-text">
+          <strong>Satisfaction Guaranteed</strong>
+          <span>Not happy? We come back and make it right</span>
+        </div>
       </div>
     </div>
   </section>
@@ -820,6 +1001,7 @@
           <div class="contact-detail-text">
             <a href="tel:+12064759785">(206) 475-9785</a>
             <small>Mon&ndash;Sat, 7am&ndash;7pm</small>
+
           </div>
         </div>
         <div class="contact-detail">
@@ -903,7 +1085,9 @@
   </footer>
 
   <script>
+    // Smooth active nav on scroll
     const sections = document.querySelectorAll('section[id]');
+    // Animate hero stats on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
