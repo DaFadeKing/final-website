@@ -418,35 +418,68 @@
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 28px;
+      max-width: 940px;
+      margin: 0 auto;
     }
     .service-card {
       background: var(--white);
       border-radius: 20px;
-      padding: 38px 28px 28px;
       border: 1.5px solid #e2e8f4;
       box-shadow: 0 4px 24px rgba(10,31,68,0.07);
       display: flex;
       flex-direction: column;
-      align-items: center;
+      overflow: hidden;
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .service-card:hover {
       box-shadow: 0 12px 44px rgba(10,31,68,0.13);
       transform: translateY(-5px);
     }
-    .service-icon {
-      width: 96px; height: 96px;
-      background: #dbeeff;
-      border-radius: 50%;
+    /* Before/After photo header */
+    .service-photos {
+      position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      flex-shrink: 0;
+      height: 220px;
     }
-    .service-icon svg { width: 46px; height: 46px; }
+    .service-photo-half {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-photo-half img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .service-photo-half:first-child::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 2px; height: 100%;
+      background: rgba(255,255,255,0.75);
+    }
+    .service-badge {
+      position: absolute;
+      top: 12px;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      padding: 5px 11px;
+      border-radius: 50px;
+      color: #fff;
+    }
+    .service-badge.before { left: 12px; background: var(--navy); }
+    .service-badge.after { right: 12px; background: var(--orange); }
+    .service-body {
+      padding: 28px 28px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
     .service-card h3 {
       font-size: 1.18rem;
       font-weight: 700;
@@ -599,6 +632,7 @@
     @media (max-width: 700px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .gallery-grid .ba-card:last-child:nth-child(odd) { grid-column: auto; max-width: 100%; margin: 0; }
+      .services-grid { grid-template-columns: 1fr; }
     }
     .ba-card {
       background: var(--white);
@@ -986,59 +1020,49 @@
       <polygon points="100,5 175,110 138,110 188,195 150,195 195,295 5,295 50,195 12,195 62,110 25,110" fill="#0a1f44"/>
       <rect x="84" y="295" width="32" height="40" fill="#0a1f44"/>
     </svg>
-    <div class="section-tag">What We Do</div>
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">Pacific Northwest weather leaves a mark. We restore your home's curb appeal &mdash; safely, effectively, and at honest prices.</p>
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-title">Professional Cleaning That Protects Your Home</h2>
+    <p class="section-sub">Safe, effective, and affordable pressure washing for every part of your property.</p>
     <div class="services-grid">
-      <!-- House Soft Wash -->
+      <!-- Driveway, Walkways & Patios -->
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 44 44" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19L22 6L40 19"/>
-            <rect x="10" y="19" width="24" height="19" rx="1.5"/>
-            <rect x="17" y="27" width="10" height="11"/>
-          </svg>
+        <div class="service-photos">
+          <div class="service-photo-half">
+            <img src="photos/patio-before.jpg" alt="Patio before cleaning" />
+            <span class="service-badge before">BEFORE</span>
+          </div>
+          <div class="service-photo-half">
+            <img src="photos/patio-after.jpg" alt="Patio after cleaning" />
+            <span class="service-badge after">AFTER</span>
+          </div>
         </div>
-        <h3>House Soft Wash</h3>
-        <p>Safe soft washing removes algae, mildew, and black streaks from vinyl, wood, and composite siding without damage to your home.</p>
-        <span class="service-price-badge">Starting at $180</span>
-        <hr class="service-card-divider"/>
-        <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
-      </div>
-      <!-- Driveway & Walkways -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 44 44" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="17" width="36" height="16" rx="3"/>
-            <circle cx="13" cy="33" r="4"/>
-            <circle cx="31" cy="33" r="4"/>
-            <path d="M4 25h36"/>
-            <path d="M15 17v-6h14v6"/>
-          </svg>
+        <div class="service-body">
+          <h3>Driveway, Walkways &amp; Patios</h3>
+          <p>High-pressure surface cleaning blasts away oil stains, moss, and years of grime from driveways, walkways, patios, and paths. Makes concrete and pavers look new again.</p>
+          <span class="service-price-badge">Starting at $120</span>
+          <hr class="service-card-divider"/>
+          <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
         </div>
-        <h3>Driveway &amp; Walkways</h3>
-        <p>High-pressure surface cleaning blasts away oil stains, moss, and years of grime from driveways, sidewalks, and paths. Makes concrete look new again.</p>
-        <span class="service-price-badge">Starting at $120</span>
-        <hr class="service-card-divider"/>
-        <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
       </div>
       <!-- Garbage Bin Cleaning -->
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 44 44" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="10" y="14" width="24" height="25" rx="2"/>
-            <path d="M7 14h30"/>
-            <path d="M17 14v-4h10v4"/>
-            <line x1="17" y1="21" x2="17" y2="33"/>
-            <line x1="22" y1="21" x2="22" y2="33"/>
-            <line x1="27" y1="21" x2="27" y2="33"/>
-          </svg>
+        <div class="service-photos">
+          <div class="service-photo-half">
+            <img src="photos/bin-before.jpg" alt="Garbage bin before cleaning" />
+            <span class="service-badge before">BEFORE</span>
+          </div>
+          <div class="service-photo-half">
+            <img src="photos/bin-after.jpg" alt="Garbage bin after cleaning" />
+            <span class="service-badge after">AFTER</span>
+          </div>
         </div>
-        <h3>Garbage Bin Cleaning</h3>
-        <p>Deep clean and deodorize your trash bins inside and out. Eliminate bacteria, grime, and odors that attract pests and smell up your yard.</p>
-        <span class="service-price-badge">Starting at $25</span>
-        <hr class="service-card-divider"/>
-        <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
+        <div class="service-body">
+          <h3>Garbage Bin Cleaning</h3>
+          <p>Deep clean and deodorize your trash bins inside and out. Eliminate bacteria, grime, and odors that attract pests and smell up your yard.</p>
+          <span class="service-price-badge">Starting at $25</span>
+          <hr class="service-card-divider"/>
+          <a href="#contact" class="service-quote-link">Get a Quote &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1125,24 +1149,24 @@
     <p class="section-sub">See the difference professional pressure washing can make. We remove years of dirt, grime, and buildup.</p>
     <div class="gallery-grid">
 
-      <!-- Patio Cleaning -->
+      <!-- Stair & Walkway Cleaning -->
       <div class="ba-card">
         <div class="ba-images">
           <div class="ba-half ba-before">
-            <img src="photos/patio-before.jpg" alt="Patio before cleaning" />
+            <img src="photos/stairs-before.jpg" alt="Stairs before cleaning" />
             <span class="ba-badge">BEFORE</span>
           </div>
           <div class="ba-half ba-after">
-            <img src="photos/patio-after.jpg" alt="Patio after cleaning" />
+            <img src="photos/stairs-after.jpg" alt="Stairs after cleaning" />
             <span class="ba-badge">AFTER</span>
           </div>
           <div class="ba-divider"><div class="ba-divider-btn">&#10095;</div></div>
         </div>
         <div class="ba-caption">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            <polyline points="4 20 4 14 10 14 10 8 16 8 16 2 20 2"/><line x1="4" y1="20" x2="20" y2="20"/>
           </svg>
-          Patio Cleaning
+          Stair &amp; Walkway Cleaning
         </div>
       </div>
 
@@ -1164,27 +1188,6 @@
             <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
           </svg>
           Driveway Cleaning
-        </div>
-      </div>
-
-      <!-- Stair Cleaning -->
-      <div class="ba-card">
-        <div class="ba-images">
-          <div class="ba-half ba-before">
-            <img src="photos/stairs-before.jpg" alt="Stairs before cleaning" />
-            <span class="ba-badge">BEFORE</span>
-          </div>
-          <div class="ba-half ba-after">
-            <img src="photos/stairs-after.jpg" alt="Stairs after cleaning" />
-            <span class="ba-badge">AFTER</span>
-          </div>
-          <div class="ba-divider"><div class="ba-divider-btn">&#10095;</div></div>
-        </div>
-        <div class="ba-caption">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="4 20 4 14 10 14 10 8 16 8 16 2 20 2"/><line x1="4" y1="20" x2="20" y2="20"/>
-          </svg>
-          Stair &amp; Walkway Cleaning
         </div>
       </div>
 
@@ -1315,8 +1318,8 @@
           <label for="service">Service Interested In</label>
           <select id="service" name="service" data-fs-field>
             <option value="">Select a service...</option>
-            <option>House Soft Wash</option>
-            <option>Driveway &amp; Walkways</option>
+            <option>Driveway, Walkways &amp; Patios</option>
+            <option>Garbage Bin Cleaning</option>
             <option>Not sure &mdash; need a recommendation</option>
           </select>
         </div>
