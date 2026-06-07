@@ -90,7 +90,7 @@
     /* --- HERO --- */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #0d2d6b 60%, #1a3a8f 100%);
+      background: var(--navy);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -99,14 +99,30 @@
       position: relative;
       overflow: hidden;
     }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-video-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(10,31,68,0.88) 0%, rgba(10,31,68,0.72) 55%, rgba(10,31,68,0.65) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
     .hero-about-card {
       flex-shrink: 0;
       width: 460px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 20px;
       padding: 36px 32px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       position: relative;
       z-index: 2;
     }
@@ -254,7 +270,19 @@
       .hero-about-card { width: 380px; }
     }
     @media (max-width: 900px) {
-      .hero-about-card { display: none; }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 60px;
+        gap: 32px;
+      }
+      .hero-about-card {
+        width: 100%;
+        display: block;
+        padding: 24px 20px;
+      }
+      .school-seal { width: 60px; height: 60px; }
+      .school-logo-name { font-size: 0.66rem; }
     }
     .hero::before {
       content: '';
@@ -870,6 +898,10 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">&#9733; Serving Seattle & the Eastside</div>
       <h1>Seattle's <em>Cleanest</em><br/>Homes Start Here</h1>
